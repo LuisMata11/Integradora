@@ -1,0 +1,7 @@
+{
+  "name": "pinterest",
+  "private": true,
+  "dependencies": {
+    "fullcalendar": "^3.4.0"
+  }
+}

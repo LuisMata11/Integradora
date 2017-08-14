@@ -1,0 +1,43 @@
+<%= javascript_include_tag "application" %>
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :event_titulo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inicio %>
+    <%= form.date_select :inicio, id: :event_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fin %>
+    <%= form.date_select :fin, id: :event_fin %>
+  </div>
+
+    <div class="field">
+      <%= form.label :clasificacion %>
+      <%= form.text_field :clasificacion, id: :event_clasificacion %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tipo_evento %>
+      <%= form.text_field :tipo_evento, id: :event_tipo_evento %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

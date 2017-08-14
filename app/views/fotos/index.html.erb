@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fotos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lugar</th>
+      <th>Foto</th>
+      <th>Descipcion</th>
+      <th>Capacidad</th>
+      <th>Grupo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fotos.each do |foto| %>
+      <tr>
+        <td><%= foto.lugar %></td>
+        <td><%= foto.foto %></td>
+        <td><%= foto.descipcion %></td>
+        <td><%= foto.capacidad %></td>
+        <td><%= foto.grupo %></td>
+        <td><%= link_to 'Show', foto %></td>
+        <td><%= link_to 'Edit', edit_foto_path(foto) %></td>
+        <td><%= link_to 'Destroy', foto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foto', new_foto_path %>
+
+

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitud: 1.5
+  longitud: 1.5
+  direccion: MyString
+  descripcion: MyText
+  titulo: MyString
+
+two:
+  latitud: 1.5
+  longitud: 1.5
+  direccion: MyString
+  descripcion: MyText
+  titulo: MyString
