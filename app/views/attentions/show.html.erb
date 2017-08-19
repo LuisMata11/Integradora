@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Horai:</strong>
+  <%= @attention.horaI %>
+</p>
+
+<p>
+  <strong>Horaf:</strong>
+  <%= @attention.horaF %>
+</p>
+
+<p>
+  <strong>Dic:</strong>
+  <%= @attention.dic %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @attention.nom %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @attention.tel %>
+</p>
+
+<p>
+  <strong>Cont:</strong>
+  <%= @attention.cont %>
+</p>
+
+<%= link_to 'Editar', edit_attention_path(@attention) %> |
+<%= link_to 'Regresar', attentions_path %>

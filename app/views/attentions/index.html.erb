@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+ <section id="testimonials">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Horario de Atención</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">El estar en contacto con nuestros posibles clientes es nuestra prioridad</p>
+        </div>
+      </div>
+      
+          <% @attentions.each do |attention| %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile">
+            <div class="pic"><%= image_tag(attention.cont)%></div>
+            <h4><%= attention.nom %></h4>
+            <span><%= attention.tel %></span>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="quote">
+           <%= attention.dic %><br>
+           <p>
+             Horario de atención:
+           </p>
+           <p>Lunes a Viernes</p>
+           <p>08:00 am - 16:00 pm</p>
+          </div>
+        </div>
+           <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_attention_path(attention), :class => 'btn btn-success' %>
+        <%= link_to 'Destroy', attention, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+      <% end %>
+      </div>
+       <% end %>
+       <br>
+     
+  </section>
+
+<br>
+
+  <% if user_signed_in? %>
+<%= link_to 'New Attention', new_attention_path, :class => 'btn btn-info' %>
+    <% end %>
+<br><br>

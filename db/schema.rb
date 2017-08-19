@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814021754) do
+ActiveRecord::Schema.define(version: 20170818184613) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,6 +50,28 @@ ActiveRecord::Schema.define(version: 20170814021754) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "attentions", force: :cascade do |t|
+    t.time "horaI"
+    t.time "horaF"
+    t.text "dic"
+    t.string "nom"
+    t.string "tel"
+    t.text "cont"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "aumentaties", force: :cascade do |t|
+    t.string "aum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "titulo"
     t.date "inicio"
@@ -70,6 +92,26 @@ ActiveRecord::Schema.define(version: 20170814021754) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "histories", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.text "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "photo_id"
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1
+    t.decimal "price"
+    t.integer "order_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["photo_id"], name: "index_line_items_on_photo_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.float "latitude"
     t.float "longitude"
@@ -80,12 +122,36 @@ ActiveRecord::Schema.define(version: 20170814021754) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
-    t.integer "user_id"
+  create_table "markers", force: :cascade do |t|
+    t.string "img"
+    t.text "desc"
+    t.string "tit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.string "email"
+    t.integer "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pins", force: :cascade do |t|
@@ -95,6 +161,16 @@ ActiveRecord::Schema.define(version: 20170814021754) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "user_id"
+  end
+
+  create_table "posters", force: :cascade do |t|
+    t.text "name"
+    t.string "fot"
+    t.text "descr"
+    t.date "fech"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ubicacions", force: :cascade do |t|

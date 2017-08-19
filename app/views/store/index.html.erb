@@ -1,0 +1,40 @@
+  <p id="notice"><%= notice %></p>
+ <h1>Lugares Disponibles:</h1>
+ <table>
+ <tbody>
+  <% cache @photos do %>
+    <% @photos.each do |photo| %>
+      <% cache photo do %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="image">
+          <%= image_tag(photo.image, style: 'display: block; margin: auto; width: 40%;') %>
+          </td>
+          <td class="description">
+          <h2><%= photo.name %></h2>
+            <%= sanitize(photo.description) %>
+          <div class="price">
+            <%= number_to_currency(photo.price) %>
+          </div>
+          <% if user_signed_in? %>
+          <p>
+            <%= button_to 'Apartar Ya', line_items_path(photo_id: photo, locale: I18n.locale),
+                              remote: true%>
+
+             </p>
+             <% end %>
+             </td>
+              <br>
+              </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</tbody>
+</table>
+<nav class="side_nav">
+        <% if @cart %>
+ 
+        <div id="cart" class="carts">
+          <%= render @cart %>
+        </div>
+        <% end %>
+      </nav>

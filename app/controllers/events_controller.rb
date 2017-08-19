@@ -1,5 +1,7 @@
 class EventsController < InheritedResources::Base
 
+layout 'events'
+
   private
 
     def event_params

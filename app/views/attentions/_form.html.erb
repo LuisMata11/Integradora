@@ -1,0 +1,47 @@
+<%= form_with(model: attention, local: true) do |form| %>
+  <% if attention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attention.errors.count, "error") %> prohibited this attention from being saved:</h2>
+
+      <ul>
+      <% attention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :horaI %>
+    <%= form.time_select :horaI, id: :attention_horaI %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horaF %>
+    <%= form.time_select :horaF, id: :attention_horaF %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dic %>
+    <%= form.text_area :dic, id: :attention_dic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom, id: :attention_nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel %>
+    <%= form.text_field :tel, id: :attention_tel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cont %>
+    <%= form.text_area :cont, id: :attention_cont %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -32,3 +32,4 @@ production:
   adapter: "Faye"
   auth_token: "ace4b1027b367dfa55c1b601cfd09e537f247a8e481f1e35837b9be1dc1d7ac9"
   async: true
+

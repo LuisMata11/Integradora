@@ -1,38 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
+<h1>Ubicación</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
+<% if user_signed_in? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= location.latitude %></td>
-        <td><%= location.longitude %></td>
-        <td><%= location.address %></td>
-        <td><%= location.description %></td>
-        <td><%= location.title %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Latitud</th>
+        <th>Longitud</th>
+        <th>Dirección</th>
+        <th>Descripción</th>
+        <th>Título</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <td><%= location.latitude %></td>
+          <td><%= location.longitude %></td>
+          <td><%= location.address %></td>
+          <td><%= location.description %></td>
+          <td><%= location.title %></td>
+          <td><%= link_to 'Mostrar', location, :class => 'btn btn-warning'%></td>
+          <td><%= link_to 'Modificar', edit_location_path(location), :class => 'btn btn-success' %></td>
+          <td><%= link_to 'Eliminar', location, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= link_to 'Nueva Ubicación', new_location_path, :class => 'btn btn-info' %>
+<% end %>
 
 <br>
-
-<%= link_to 'New Location', new_location_path %>
+<br>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>

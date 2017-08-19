@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  fot: MyString
+  descr: MyText
+  fech: 2017-08-18
+  cost: 1
+
+two:
+  name: MyText
+  fot: MyString
+  descr: MyText
+  fech: 2017-08-18
+  cost: 1

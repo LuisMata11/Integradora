@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @marker.img %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @marker.desc %>
+</p>
+
+<p>
+  <strong>Tit:</strong>
+  <%= @marker.tit %>
+</p>
+
+<%= link_to 'Edit', edit_marker_path(@marker) %> |
+<%= link_to 'Back', markers_path %>

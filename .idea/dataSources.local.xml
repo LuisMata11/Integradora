@@ -6,5 +6,17 @@
       <secret-storage>master_key</secret-storage>
       <first-sync>true</first-sync>
     </data-source>
+    <data-source name="@localhost [2]" uuid="e699a48f-15e8-4ea9-af6e-e55016b38908">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="development.sqlite3" uuid="47977969-7dcd-40ed-984c-9e9c78e9dee5">
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
   </component>
 </project>

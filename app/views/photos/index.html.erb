@@ -1,0 +1,53 @@
+  <p id="notice"><%= notice %></p>
+
+<h1>Salones de Fiestas</h1>
+
+<table>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= link_to 'Agregar Salón', new_photo_path, :class => 'btn btn-info' %>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+ 
+        <td class="image">
+          <%= image_tag(photo.image, class: 'list_image', style: 'display: block; margin: auto; width: 40%;')%>
+
+        </td>
+ 
+        <td class="description">
+          <h1><%= photo.name %></h1>
+          <div class="price">
+            <%= number_to_currency(photo.price) %>
+            
+          </div>
+          <p>
+            <%= truncate(strip_tags(photo.description),
+                         length: 80) %>
+          </p>
+        </td>
+ 
+ 
+        <td class="actions">
+          <ul>
+
+            <% if user_signed_in? %>
+            <li><%= link_to 'Modificar', edit_photo_path(photo), :class => 'btn btn-success' %></li>
+            <li>
+              <%= link_to 'Eliminar',
+                           photo, 
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+            </li>
+            <% end %>
+          </ul>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -24,20 +24,30 @@
         <td><%= event.tipo_evento %></td>
 
         <% if user_signed_in? %>
-          <td><%= link_to 'Show', event %></td>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <!--<td><%= link_to 'Detalles', event %></td>-->
+          <td><%= link_to 'Mostrar', event, :class => 'btn btn-warning' %></td>
+          <td><%= link_to 'Modificar', edit_event_path(event), :class => 'btn btn-success' %></td>
+          <td><%= link_to 'Eliminar', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<br>
+<div class="panel panel-danger">
+  <div class="panel-heading">Jardin Principal</div>
+  <div class="panel-body">Conciertos gratuitos Motel y Matisse.</div>
+</div>
+<br>
+<div class="panel panel-danger">
+  <div class="panel-heading">Explanada de la Feria</div>
+  <div class="panel-body"><b>Acceso:</b> $45 <br>Incluye todos los juegos mecánicos.</div>
+</div>
+<br>
+<a href= "<%= locations_path %>" target=_blank><button type="button" class="btn btn-danger">Cómo llegar...</button></a>
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Event', new_event_path %>
+  <%= link_to 'Agregar Evento', new_event_path, :class => 'btn btn-info' %>
 <% end %>
 
 <br>

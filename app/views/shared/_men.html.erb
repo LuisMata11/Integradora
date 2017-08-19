@@ -1,0 +1,63 @@
+<section id="hero">
+    <div class="hero-container">
+      <div class="wow fadeIn">
+        <div class="hero-logo">
+          <img class="" src="img/dh.png" alt="Imperial">
+        </div>
+
+        <h1>CENTROS DE ENTRETENIMIENTO </h1>
+        <h2>Nosotros ofrecemos <span class="rotating">Buen ambiente, Diversión garantizada , Momentos inolvidables </span></h2>
+        <div class="actions">
+          <a href="<%= attentions_path %>" class="btn-get-started">Contáctanos</a>
+          <a href="#services" class="btn-services">Nuestros Servicios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--==========================
+  Header Section
+============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#hero"><img src="img/dh.png" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Header 1</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="<%= histories_path %>">Inicio</a></li>
+          <li class="menu-has-children"><a href="">Instalaciones</a>
+              <ul>
+                  <li><a href="<%= photos_path %>">Salones</a></li>
+                  <li><a href="<%= store_index_path %>">Rentar Salón</a></li>
+                </ul>
+          </li>
+          <li><a href="<%= atraccions_path %>">Atracciones</a></li>
+          <li class="menu-has-children"><a href="#portfolio">Actividades</a>
+                   <ul>
+                  <li><a href="<%= events_path %>">Eventos</a></li>
+                  <li><a href="<%= posters_path %>">Cartel Oficial</a></li>
+                </ul>
+          </li>
+           <li class="menu-has-children"><a href="#testimonials">Multimedia</a>
+                 <ul>
+                  <li><a href="<%= markers_path %>">Realidad Aumentada</a></li>
+                  <li><a href="<%= locations_path %>">Geocalización</a></li>
+                </ul>
+          </li>
+          <li><a href="<%= attentions_path %>">Contactanos</a></li>
+        <% if current_user.nil? %>
+        <li><a href="<%= new_user_session_path %>"> Ingresar </a></li>
+        <li><a href="<%= new_user_registration_path %>"> Registrarse </a></li>
+            <% else %>
+        <li><a href="<%= destroy_user_session_path %>" data-method="delete"> Salir </a></li>
+            <!-- <= link_to 'Salir', destroy_user_session_path, :method => :delete > -->
+            <%end%>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->

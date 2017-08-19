@@ -66,8 +66,8 @@ gem 'gmaps4rails'
 #coordenadas
 gem 'geocoder'
 
-#Messages
-gem 'faye'
-gem 'thin', require: false
-gem 'sync'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+
+
 

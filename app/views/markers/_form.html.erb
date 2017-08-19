@@ -1,0 +1,32 @@
+<%= form_with(model: marker, local: true) do |form| %>
+  <% if marker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+      <ul>
+      <% marker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :img %>
+    <%= form.text_field :img, id: :marker_img %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, id: :marker_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tit %>
+    <%= form.text_field :tit, id: :marker_tit %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: atraccion, local: true) do |form| %>
+  <% if atraccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(atraccion.errors.count, "error") %> prohibited this atraccion from being saved:</h2>
+
+      <ul>
+      <% atraccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :lugar %>
+    <%= form.text_field :lugar, id: :atraccion_lugar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :atraccion_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

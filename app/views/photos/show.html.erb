@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @photo.name %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @photo.description %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @photo.price %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @photo.image %>
+</p>
+
+<%= link_to 'Editar', edit_photo_path(@photo) %> |
+<%= link_to 'Regresar', photos_path %>

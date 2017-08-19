@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+
+  <section id="about">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Dolores Hidalgo</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">Descubre lo mejor de La Cuna de La Independencia en los mejores eventos y sitios de interés, más de la magia y cultura que ofrece esta ciudad.</p>
+        </div>
+      </div>
+    </div>
+     <% @histories.each do |history| %>
+    <div class="container about-container wow fadeInUp">
+      <div class="row"> 
+        
+        <div class="col-md-6 about-content">
+
+               <%= image_tag(history.img, :style => 'width:100%; max-width:400px;left top no-repeat;') %>     
+
+        </div>
+          
+        <div class="col-md-6">
+
+          <h2 class="about-title"><%= history.name %></h2>
+          <p class="about-text">
+            <%= history.desc %>
+          </p>
+
+        </div>
+      </div>
+      <br>
+         <% if user_signed_in? %>
+      <%= link_to 'Modificar', edit_history_path(history), :class => 'btn btn-success' %>
+      <%= link_to 'Eliminar', history, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+      <% end %>
+    </div>
+         </div> 
+    <% end %>
+  </section>
+
+
+<br>
+
+  <% if user_signed_in? %>
+<%= link_to 'Agregar Historia', new_history_path, :class => 'btn btn-info' %>
+    <% end %>
+<br><br>
+
+ <section id="services">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Nuestros servicios</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">El ofrecer servicios con la más alta calidad es una de nuestras prioridades principales.</p>
+        </div>
+      </div>
+        
+      <div class="row">
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-glass"></i></div>
+          <h4 class="service-title"><a href="">Renta de Salones de Fiestas</a></h4>
+          <p class="service-description">Contamos con la mas completa información sobre los salones de fiestas de la ciudad</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-photo"></i></div>
+          <h4 class="service-title"><a href="">Imagenes de la ciudad</a></h4>
+          <p class="service-description"> Descubre nuestra hermosa ciudad atreves de imágenes que te cautivaran</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-headphones"></i></div>
+          <h4 class="service-title"><a href="">Información sobre Eventos</a></h4>
+          <p class="service-description">Entérate sobre todo lo más relevante de los eventos en la ciudad</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-camera"></i></div>
+          <h4 class="service-title"><a href="">Atracciones Turísticas</a></h4>
+          <p class="service-description">Te mostramos sugerencias de las principales atracciones turísticas que se encuentran en la ciudad</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-qrcode"></i></div>
+          <h4 class="service-title"><a href="">Interracción Multimedia</a></h4>
+          <p class="service-description"> Te permitimos interactuar de manera dinámica en nuestra aplicación por medio de la realidad aumentada y la geocalización.</p>
+        </div>
+      </div>
+    </div>  
+  </section>
+

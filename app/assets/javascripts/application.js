@@ -15,7 +15,6 @@
 //= #require_tree .
 
 //= require jquery.min
-//= require sync
 //= require moment
 //= require fullcalendar
 //= require events/eventos

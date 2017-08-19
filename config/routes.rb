@@ -1,20 +1,30 @@
 Rails.application.routes.draw do
-  resources :locations
-  resources :ubicacions
-  get '/messages/index'
+  
+  
+  resources :posters
+  resources :attentions
+  resources :aumentaties
+  resources :markers
+  resources :histories
+  resources :orders
+  resources :line_items
+  resources :carts
+  mount ActionCable.server => '/cable'
+
   resources :messages
   resources :events
   resources :locations
-  #resources :fotos
-  #resources :atraccions
+  resources :photos
+  resources :store
+  resources :atraccions
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
   resources :pins
-  get 'welcome/index'
+  get 'histories/index'
 
-  root 'welcome#index'
+  root 'histories#index'
   get 'mypins' => 'pins#mypins'
   get 'pinsof/:user_id' => 'pins#pinsof', :as => "pinsof"
   get '/users/sign_out'

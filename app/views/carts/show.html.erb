@@ -1,0 +1,25 @@
+<article>
+  <% if notice %>
+    <aside id="notice"><%= notice %></aside>
+  <% end %>
+ 
+  <h2>Tus reservaciones...</h2>
+  <table>
+ <% @cart.line_items.each do |item| %>
+   <li><%= item.quantity %> &times; <%= item.product.title %></li>
+  <% end %>
+    <!--<%= render(@cart.line_items) %>-->
+    <tfoot>
+      <tr>
+        <td colspan="2">Total:</td>
+        <td class="price"><%= number_to_currency(@cart.total_price) %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <%= button_to 'Eliminar compras.', @cart,
+                method: :delete,
+                data: { confirm: '¿Estás seguro?' } %>
+ 
+</article>
+
+<%= link_to 'Regresar', store_path %>

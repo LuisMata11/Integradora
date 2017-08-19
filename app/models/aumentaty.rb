@@ -1,0 +1,2 @@
+class Aumentaty < ApplicationRecord
+end
